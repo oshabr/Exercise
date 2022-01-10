@@ -1,0 +1,25 @@
+drug no, name,description dosage, Method of admin
+patient no,drug no, start date, units oper day, finish date
+
+DB(patient_no, patient_name, ward_no, ward_name, bed_number, [drug_no, drug_name, description, dosage, moa, upd, start_date, finish_date]])
+
+
+1NF:
+	DB(*patient_no*, patient_name, ward_no, ward_name, bed_number, 		*drug_no*, drug_name, description, dosage, moa, upd, *start_date*, 		finish_date)
+
+2NF=check for dependencies.make new table
+
+	t.patient (*patient_no*, patient_name, ward_no, ward_name, 				bed_number)
+	t.drug(*drug_no*, drug_name, description, dosage, moa)
+	t.doses(*patient_no*, *drug_no*, *start_date*, upd, finish_date)
+
+3NF: check if there are transitive dependencies=non key dependent to non key
+
+	t.ward(*ward_no*, ward_name)
+	t.patient (*patient_no*, patient_name, ward_no,  				bed_number)
+	t.drug(*drug_no*, drug_name, description, dosage, moa)
+	t.doses(*patient_no*, *drug_no*, *start_date*, upd, finish_date)
+	
+BCNF:non key determine key element
+same
+
