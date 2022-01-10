@@ -1,0 +1,33 @@
+1)
+	select guestname, guestaddress from guest where guestaddress rlike 		"London order by guestname;
+	select guestname, guestaddress from guest where guestaddress like 		"%London" order by guestname;
+	
+2)
+	select type, price from room where type = "double" or type="family" and 	price <40 order by price;
+
+3)
+	select * from booking where dateto is null;
+4)
+	select avg(price) from room;
+5)
+	select sum(price) from room;
+	select sum(price) as total_revenue from room;
+6)
+	select * from booking where (datefrom <="2022-08-01" and dateto 			>="2022-08-01") or (datefrom >="2022-08-01" and 	    datefrom<="2022-08-31");
+
+7)
+	select count(distinct guessNo) from booking where (datefrom 		<="2022-08-01" and dateto 			>="2022-08-01") or (datefrom >="2022-08-01" and 	    datefrom<="2022-08-31");
+	
+8)
+	select type, price from room where hotelno"fb01";
+	select type, price from hotel join room on room.hotelno = hotel.hotelno where hotel.hotelname  "The Tower Hotel"
+	
+9)
+	select curdate();
+	select * from booking join guest on guest.guestno = booking.guestno join hotel on hotel.hotelno=booking.hotelno where curdate() between datefrom and dateto and hotel.hotelname="The Tower Hotel";
+10)
+select * from booking join guest on guest.guestno = booking.guestno join hotel on hotel.hotelno=booking.hotelno ojin rom on roomnroomno =booking.room no and room.htoe = booking.hotelno where curdate() between datefrom and dateto and hotel.hotelname="The Tower Hotel"
+11)
+Select sum(price) from booking join guest on guest.guestno = booking.guestno join hotel on hotel.hotelno=booking.hotelno ojin rom on roomnroomno =booking.room no and room.htoe = booking.hotelno where curdate() between datefrom and dateto and hotel.hotelname="The Tower Hotel"
+
+12) select * from room join hotel.hotelno=room.hotelno where room.roomno not in (select room.roomno from booking join guest on guest.guestno = booking.guestno join hotel on htoel.hotelno=booking.hotelno join room n room.roomno = booking.room no amd room.hotelno 
