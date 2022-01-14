@@ -1,0 +1,27 @@
+1. select concat(stdFirstName," ", stdLastName) as name, stdcity, stdGPA as GPA from student where stdGPA>= 3.7;
+
+2. select concat(FacFirstName, " ", FacLastName) as name, FacHireDate from faculty where YEAR(FacHireDate)=1999 or YEAR(FacHireDate)=2000;
+
+3.select OfferNo,CourseNo,FacSSN from offering where OffTerm="FALL" and OffYear=2005 or OffTerm="WINTER" and OffYear=2006;
+
+4. select Offerno,course.Courseno, OffDays, OffTime from course join offering on offering.courseno=course.courseno where crsDesc rlike "DATABASE|PROGRAMMING" and OfFTerm = "SPRING" and OffYear =2006;
+
+5. select select offering.offerNO, offering.CourseNo, FacFurstName, FacLastnAME from offering join faculty on offering.FacSSN = faculty.FACSSN where OffTerm="FALL" and OffYear=2005 and CourseNo like "IS%" and FacRank ="ASST";
+
+6. select stdMajor, avg(stdGPA) froom studentsg group by stdMajor;
+
+7. select Offyear, count(OfferNo) as no offering, count(distinct(CourseNo)) as no. courses from offering group by OffYear;
+
+8. select stdMajor, avg(stdGPA) from student where stdclass in ("JR", "SR") group by stdMajor having avg(stdGPA) >3.1
+
+9. select stdMajor, stdClass, min(stdGPA), max(stdGPA) from student group by stdMajor, stdClass;
+
+10. select crsDesc, count(CourseNo) from course join offering on offering.Courseno=course.courseNO where CourseNo like "IS%" group by crsDesc;
+
+11 select stdFirstname, stdALstname, StdGPA, stdCity, stdState from student where stdClass = "JR"order by stdGPA asc;
+
+12. select distinct FacCity, FacState from faculty
+
+13. select distinct stdFirstname, stdLastName from student join enrollment on enrollment.stdSSN = student.stdSSN where enrollment.EnrGrade >= 3.5;
+
+14. select offerng.offerno, offering.CourseNo, OffDays, OffLocation, faculty.FacFirstName, faculty.FacLAstname from student join enrollment on enrollment.stdSSN = student.stdSSN join offering on offering.OfferNo=enrollment.OfferNO join faculty on faculty.FacSSN = offering.FAcSSN where stdFirsname = "Bob" and stdLAstName = "Robert" and OFfYEar = 2006 abd OffTerm = "SPRING"
